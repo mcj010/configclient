@@ -1,0 +1,16 @@
+server:
+  port: 65011
+spring:
+  application:
+    #本程序的服务名
+    name: configclient
+  cloud:
+    config:
+      #配置中心的URL
+      uri: http://localhost:65010/
+      #指定的环境名
+      profile: dev
+      #指定的分支名
+      #label: master
+      #文件前缀名称
+      name: ctest
