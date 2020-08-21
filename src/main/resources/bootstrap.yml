@@ -1,5 +1,3 @@
-server:
-  port: 65011
 spring:
   application:
     #本程序的服务名
@@ -7,10 +5,17 @@ spring:
   cloud:
     config:
       #配置中心的URL
-      uri: http://localhost:65010/
+      #      uri: http://localhost:65010/
       #指定的环境名
       profile: dev
       #指定的分支名
       #label: master
       #文件前缀名称
       name: ctest
+      discovery:
+        enabled: true
+        service-id: configserver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1:30001/eureka/
