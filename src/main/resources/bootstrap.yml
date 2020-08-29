@@ -3,14 +3,37 @@ server:
 spring:
   application:
     #本程序的服务名
-    name: configclient
+    name: ctest
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   cloud:
     config:
       #配置中心的URL
-      uri: http://localhost:65010/
+#      uri: http://localhost:65010/
       #指定的环境名
       profile: dev
       #指定的分支名
       #label: master
       #文件前缀名称
-      name: ctest
+#      name: ctest
+#      username: root
+#      password: s3cr3t
+    discovery:
+        enabled: true
+        service-id: configserver
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1:30001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
